@@ -1,5 +1,8 @@
 package com.systex.main;
 
+import java.text.SimpleDateFormat;
+import java.util.GregorianCalendar;
+
 import com.systex.model.Employee;
 
 public class TestEmployee {
@@ -11,6 +14,10 @@ public class TestEmployee {
 		emp1.department = "IT";
 		emp1.salary = 85000;
 		System.out.println(emp1);
+		
+		GregorianCalendar gc = new GregorianCalendar();
+		System.out.println(gc.getTime());
+		System.out.println(SimpleDateFormat.getInstance().format(gc.getTime()));
 	}
 
 }
