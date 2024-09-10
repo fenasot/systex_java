@@ -1,4 +1,6 @@
-package com.systex.model;
+package com.systex.main;
+
+import com.systex.model.Scoping;
 
 public class TestScoping {
 	
