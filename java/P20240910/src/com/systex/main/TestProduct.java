@@ -42,17 +42,24 @@ public class TestProduct {
 		p5.setFree(false);
 		p5.incstock(500);
 		
+		
+		Product p6 = new Product(2, "aaa");
+		Product p7 = new Product(1, "aaa", 23.24, false, 3);
+		
+		
 		ProductService ps = new ProductService();
 		
 		System.out.println("產品庫存報表");
 		System.out.println("==============================");
 		System.out.println("序號\t品名\t單價\t免費(?)\t庫存量\t庫存價值");
 		System.out.println("==============================");
-		System.out.println(p1+"\t"+ps.calculateProductInverntory(p1));
-		System.out.println(p2+"\t"+ps.calculateProductInverntory(p2));
-		System.out.println(p3+"\t"+ps.calculateProductInverntory(p3));
-		System.out.println(p4+"\t"+ps.calculateProductInverntory(p4));
-		System.out.println(p5+"\t"+ps.calculateProductInverntory(p5));
+		System.out.println(p1 + "\t" + ps.calculateProductInverntory(p1));
+		System.out.println(p2 + "\t" + ps.calculateProductInverntory(p2));
+		System.out.println(p3 + "\t" + ps.calculateProductInverntory(p3));
+		System.out.println(p4 + "\t" + ps.calculateProductInverntory(p4));
+		System.out.println(p5 + "\t" + ps.calculateProductInverntory(p5));
+		System.out.println(p6 + "\t" + ps.calculateProductInverntory(p6));
+		System.out.println(p7 + "\t" + ps.calculateProductInverntory(p7));
 		System.out.println("==============================");		
 	}	
 }

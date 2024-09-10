@@ -1,11 +1,6 @@
 package com.systex.model;
 
 public class Product {
-//	public int id;
-//	public String name;
-//	public double unitPrice;
-//	public boolean free;
-//	public int stock;
 	
 	private int id;
 	private String name;
@@ -13,6 +8,23 @@ public class Product {
 	private boolean free;
 	private int stock;
 	
+	public Product() {
+		super();
+	}
+
+	public Product(int id, String name) {
+		this(id, name, 0, false, 0);
+	}
+	
+	public Product(int id, String name, double unitPrice, boolean free, int stock) {
+//		super();
+		this.id = id;
+		this.name = name;
+		this.unitPrice = unitPrice;
+		this.free = free;
+		this.stock = stock;
+	}
+
 	public int getId() {
 		return id;
 	}
