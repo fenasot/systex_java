@@ -12,6 +12,7 @@ public class TestTrango {
 //		a.loop3(5);
 //		a.loop4(5);
 //		a.loop5(5);
-		a.loop6(5);
+//		a.loop6(5);
+		a.loop7(6);
 	}
 }

@@ -93,7 +93,7 @@ public class Trango {
 					continue;
 				}
 				
-				if(j <= (height + i - 1)) {
+				if(j <= (height * 2 - i)) {
 					System.out.print("*");
 					continue;
 				}
@@ -101,6 +101,47 @@ public class Trango {
 			}
 			System.out.println();
 		}
+	}
+	
+	public void loop7(int height) {
+
+//		前半段
+		for(i = height; i > 1; i--) {
+			for(j = 1 ; j <= (height * 2 - 1) ; j++) {
+				
+				if(j <= (i - 1)) {
+					System.out.print(" ");
+					continue;
+				}
+				
+				if(j <= (height * 2 - i)) {
+					System.out.print("*");
+					continue;
+				}
+				System.out.print(" ");
+			}
+			System.out.println();
+		}
+//		後半段
+		for(i = 1 ; i <= height ; i++) {
+			for(j = 1 ; j <= (height * 2 - 1) ; j++) {
+				
+				if(j <= (i - 1)) {
+					System.out.print(" ");
+					continue;
+				}
+				
+				if(j <= (height * 2 - i)) {
+					System.out.print("*");
+					continue;
+				}
+				System.out.print(" ");
+			}
+			System.out.println();
+		}
+		
+
+		
 	}
 }
 
