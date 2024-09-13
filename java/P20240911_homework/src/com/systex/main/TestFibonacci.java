@@ -7,6 +7,8 @@ public class TestFibonacci {
 	public static void main(String[] args) {
 		Fibonacci a = new Fibonacci();
 		
-		a.printOut(1000);
+		a.printOut(Integer.parseInt(args[0]));
+		
+//		a.printOut(1000);
 	}
 }

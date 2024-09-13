@@ -8,6 +8,8 @@ public class TestFindingPrimes {
 		FindingPrimes a = new FindingPrimes();
 		
 //		a.printOut1(1000);
-		a.printOut2(1000);
+//		a.printOut2(1000);
+		
+		a.printOut2(Integer.parseInt(args[0]));
 	}
 }

@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FindingPrimes {
-
+	
+	// 包含1，且效能差
 	public void printOut1(int maxNumber) {
-
+		
+		
 		long start = System.currentTimeMillis();
 		long end = System.currentTimeMillis();
 		System.out.println("Total cost time: " + (start-end));
@@ -27,10 +29,7 @@ public class FindingPrimes {
 	}
 	
 	public void printOut2(int maxNumber) {
-
-		if(maxNumber >= 1) {
-			System.out.println(1);
-		}
+		int total = 0;
 		
 		List<Integer> iArr= new ArrayList<>();
 		iArr.add(2);		
@@ -51,9 +50,12 @@ public class FindingPrimes {
 			if(is_prime) {
 				System.out.println(nowNum);
 				iArr.add(nowNum);
+				total++;
 			}
 			
 			nowNum++;
 		}
+		
+		System.out.println("Total: " + total);
 	}
 }
