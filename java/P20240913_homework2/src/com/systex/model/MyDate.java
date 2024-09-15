@@ -51,16 +51,15 @@ public class MyDate implements Comparable<MyDate> {
 		
 		if(isRaising) {
 			dateComparator = Comparator
-					.comparing(comps.get(0)).reversed()
-					.thenComparing(comps.get(1)).reversed()
-					.thenComparing(comps.get(2)).reversed();
-			
+					.comparing(comps.get(0))
+					.thenComparing(comps.get(1))
+					.thenComparing(comps.get(2));	
 		}
 		else {
 			dateComparator = Comparator
-					.comparing(comps.get(0))
-					.thenComparing(comps.get(1))
-					.thenComparing(comps.get(2));			
+					.comparing(comps.get(0)).reversed()
+					.thenComparing(comps.get(1)).reversed()
+					.thenComparing(comps.get(2)).reversed();
 		}
 
 		Collections.sort(dates, dateComparator);
