@@ -7,7 +7,7 @@ public class TestProperties {
 
 	public static void main(String[] args) {
 		Properties props = System.getProperties();
-		Enumeration propNames = props.propertyNames();
+		Enumeration<?> propNames = props.propertyNames();
 		while(propNames.hasMoreElements()) {
 			String propName = (String)propNames.nextElement();
 			String propValue = props.getProperty(propName);

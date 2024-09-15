@@ -1,4 +1,4 @@
-package test.java.com.systex.sorting;
+package main.java.com.systex.model.sorting;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -45,16 +45,27 @@ public class MyDate implements Comparable<MyDate> {
 		for (int i : sortInts) {
 			comps.add(getExtractor(i));
 		}
-		
+
 //		TODO: 讓thenComparing可以自由增加
-		Comparator<MyDate> dateComparator = Comparator
-				.comparing(comps.get(0))
-				.thenComparing(comps.get(1))
-				.thenComparing(comps.get(2));
+		Comparator<MyDate> dateComparator;
 		
+		if(isRaising) {
+			dateComparator = Comparator
+					.comparing(comps.get(0)).reversed()
+					.thenComparing(comps.get(1)).reversed()
+					.thenComparing(comps.get(2)).reversed();
+			
+		}
+		else {
+			dateComparator = Comparator
+					.comparing(comps.get(0))
+					.thenComparing(comps.get(1))
+					.thenComparing(comps.get(2));			
+		}
+
 		Collections.sort(dates, dateComparator);
 
-		System.out.println("======== Sort By "+ sortType + " ========");
+		System.out.println("======== Sort By "+ sortType + " ,is raising: " + isRaising + " ========");
 		dates.forEach(date -> System.out.println(date));
 	}
 
@@ -84,7 +95,8 @@ public class MyDate implements Comparable<MyDate> {
 		@Override
 		public int compare(MyDate o1, MyDate o2) {
 			int yearAns = Integer.compare(o1.getYear(), o2.getYear());
-			return yearAns == 0 ? Integer.compare(o1.getMonth(), o2.getMonth()) : yearAns;
+			int monthAns = Integer.compare(o1.getMonth(), o2.getMonth());
+			return yearAns == 0 ? monthAns : yearAns;
 		}
 	};
 //	Not used

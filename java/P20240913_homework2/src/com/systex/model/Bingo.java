@@ -23,6 +23,7 @@ public class Bingo {
 				num = (int)((Math.random() * 49) + 1);
 				isContain = excludeTempNums.contains(num);	
 			} while (isContain);
+			
 			excludeTempNums.add(num);
 			System.out.print("spec num: " + num + " , others num: ");
 			
@@ -38,24 +39,23 @@ public class Bingo {
 			System.out.println();
 		}
 	}
-	
+
 	public Bingo(int specNum[], int othersNum[]) {
 		for(int i : specNum) {
-			setSpecNum(i);	
+			if (i >= 1 && i <= 49) {
+				setSpecNum(i);
+			}
 		}
 		for(int i : othersNum) {
-			setOthersNum(i);
+			if (i >= 1 && i <= 49) {
+				setOthersNum(i);
+			}
 		}
 	}
 
 	public Set<Integer> getSpecNum() {
 		return specNum;
 	}
-	
-//	public void printSpecNum() {
-//		System.out.println();
-//	}
-
 
 	public void setSpecNum(int specNum) {
 		this.specNum.add(specNum);	

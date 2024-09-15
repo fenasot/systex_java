@@ -3,8 +3,6 @@ package com.systex.main;
 import java.util.Collections;
 import java.util.LinkedList;
 
-import com.systex.model.DayComparator;
-import com.systex.model.MonthComparator;
 import com.systex.model.MyDate;
 
 public class TestSorting {

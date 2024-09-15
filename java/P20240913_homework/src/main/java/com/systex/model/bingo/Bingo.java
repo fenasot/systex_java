@@ -1,4 +1,4 @@
-package test.java.com.systex.bingo;
+package main.java.com.systex.model.bingo;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -23,6 +23,7 @@ public class Bingo {
 				num = (int)((Math.random() * 49) + 1);
 				isContain = excludeTempNums.contains(num);	
 			} while (isContain);
+			
 			excludeTempNums.add(num);
 			System.out.print("spec num: " + num + " , others num: ");
 			
@@ -38,39 +39,23 @@ public class Bingo {
 			System.out.println();
 		}
 	}
-	
-//	public Bingo(int[]... numsArr1) {
-//		int cntOpen = 0;
-//		
-//		for(int[] nums : numsArr) {
-//			int cntNums = 0;
-//			
-//			for(int i : nums) {
-//				if(cntNums == 0) {
-//					setSpecNum(i);
-//				}
-//			}
-//			
-//		}
-//	}
-	
+
 	public Bingo(int specNum[], int othersNum[]) {
 		for(int i : specNum) {
-			setSpecNum(i);	
+			if (i >= 1 && i <= 49) {
+				setSpecNum(i);
+			}
 		}
 		for(int i : othersNum) {
-			setOthersNum(i);
+			if (i >= 1 && i <= 49) {
+				setOthersNum(i);
+			}
 		}
 	}
 
 	public Set<Integer> getSpecNum() {
 		return specNum;
 	}
-	
-//	public void printSpecNum() {
-//		System.out.println();
-//	}
-
 
 	public void setSpecNum(int specNum) {
 		this.specNum.add(specNum);	

@@ -1,8 +1,8 @@
-package main.java.com.systex.bingo;
+package main.java.com.systex.controller.bingo;
 
 import java.util.Arrays;
 
-import test.java.com.systex.bingo.Bingo;
+import main.java.com.systex.model.bingo.Bingo;
 
 public class TestBingo {
 
