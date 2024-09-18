@@ -4,5 +4,5 @@
 /**
  * 
  */
-module P20240913_homework {
+module P20240913_homework6 {
 }

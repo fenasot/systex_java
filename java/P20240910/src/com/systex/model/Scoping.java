@@ -10,11 +10,11 @@ public class Scoping {
 	public final int MYCONT = 100; // Compile-Time Constant
 	
 	public void callMe(int c, int d) {
-		int e;
-		if(c > 10) {
-			int f;
-		}
-		
-		long g = 39249231L;
+//		int e;
+//		if(c > 10) {
+//			int f;
+//		}
+//		
+//		long g = 39249231L;
 	}
 }
