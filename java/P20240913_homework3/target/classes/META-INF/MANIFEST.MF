@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Build-Jdk-Spec: 21
-Main-Class: main.java.com.systex.controller.control.TestControlMain
-Created-By: Maven Integration for Eclipse
-
