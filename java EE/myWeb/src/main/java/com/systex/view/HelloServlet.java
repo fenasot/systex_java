@@ -1,7 +1,8 @@
 package com.systex.view;
 
+import jakarta.annotation.PostConstruct;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
+//import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -24,6 +25,11 @@ public class HelloServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+    @PostConstruct
+    public void doInit() {
+    	System.out.println("Doint init...");
+    }
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -41,7 +47,7 @@ public class HelloServlet extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 		out.println("<h2>HelloServlet</h2>");
-		out.println("<p>現在的時間是" + new SimpleDateFormat().getInstance().format(new Date()) );
+		out.println("<p>現在的時間是" + SimpleDateFormat.getInstance().format(new Date()) );
 		out.println("<table id='tableone' border='1'>");
 		out.println("<tbody>");
 		

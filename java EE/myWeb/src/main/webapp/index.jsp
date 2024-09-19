@@ -21,6 +21,7 @@ a.style.color = "#000000"
 	<h1>Welcome To My Java EE Playground</h1>
 	<p>Current Time is: <%= SimpleDateFormat.getInstance().format(new Date()) %></p>
 	<p><a href="admin/Hello.aspx">Hello Servlet</a></p>
+	<p><a href="admin/dump.view">dump</a></p>
 	<div id="this_one"> LOL</div>
 </body>
 </html>
