@@ -1,3 +1,4 @@
+<%@page import="java.sql.Date"%>
 <%@page import="java.util.Enumeration"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -8,6 +9,12 @@
 <title>Insert title here</title>
 </head>
 <body style="text-align: center;">
+	<%= session.isNew() %><br>
+	<%= session.getId() %><br>
+	<%= new Date(session.getLastAccessedTime()) %><br>
+	<%= new Date(session.getCreationTime()) %><br>
+	<%= session.getMaxInactiveInterval() %><br>
+	
 	<p><img src="../images/wqeqwe.jpg"/></p>
 	<table border="1" style="margin: auto;">
 		<tbody>
