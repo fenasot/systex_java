@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 import com.systex.model.Customer;
+import com.systex.model.CustomerService;
 
 /**
  * Servlet implementation class CreateCustomerController
@@ -95,6 +96,11 @@ public class CreateCustomerController extends HttpServlet {
 			cust.setBirth(birth);
 			cust.setGender(gender);
 			cust.setHabits(habits);
+			cust.setAccount("");
+			
+			CustomerService custService = new CustomerService();
+			custService.createCustomer(cust);
+			
 			request.setAttribute("cust", cust);  //request scope
 			
 			view = request.getRequestDispatcher("createSuccessful.jsp");

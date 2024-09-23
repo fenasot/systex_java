@@ -23,6 +23,7 @@ a.style.color = "#000000"
 	<p>
 		<a href="admin/Hello.aspx">Hello Servlet</a>
 		<a href="admin/dump.view">dump</a>
+		<a href="customer/createCustomer.jsp">createCustomer to db</a>
 		<a href="customer/createCustomer1.jsp">createCustomer1</a>
 	</p>
 	<div id="this_one"> LOL</div>

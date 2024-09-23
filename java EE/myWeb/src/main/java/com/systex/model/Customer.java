@@ -14,14 +14,23 @@ import java.io.Serializable;
  * @author Administrator
  */
 public class Customer implements Serializable {
-
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int cid;
+    private String name;
+    private String email;
+    private String telephone;
+    private String gender;
+    private String birth;
+    private String address;
+    private String[] habits;
+    private String account;
+    
     /** Creates a new instance of Customer */
     public Customer() {
     }
-    /**
-     * Holds value of property name.
-     */
-    private int cid;
 
     /**
      * Getter for property name.
@@ -38,10 +47,6 @@ public class Customer implements Serializable {
     public void setCid(int cid) {
         this.cid = cid;
     }
-    /**
-     * Holds value of property name.
-     */
-    private String name;
 
     /**
      * Getter for property name.
@@ -58,10 +63,7 @@ public class Customer implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    /**
-     * Holds value of property password.
-     */
-    private String email;
+
 
     /**
      * Getter for property password.
@@ -78,10 +80,6 @@ public class Customer implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    /**
-     * Holds value of property telephone.
-     */
-    private String telephone;
 
     /**
      * Getter for property telephone.
@@ -98,10 +96,7 @@ public class Customer implements Serializable {
     public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
-    /**
-     * Holds value of property address.
-     */
-    private String address;
+
 
     /**
      * Getter for property address.
@@ -118,10 +113,6 @@ public class Customer implements Serializable {
     public void setAddress(String address) {
         this.address = address;
     }
-    /**
-     * Holds value of property gender.
-     */
-    private String gender;
 
     /**
      * Getter for property gender.
@@ -138,10 +129,6 @@ public class Customer implements Serializable {
     public void setGender(String gender) {
         this.gender = gender;
     }
-    /**
-     * Holds value of property habits.
-     */
-    private String[] habits;
 
     /**
      * Getter for property habits.
@@ -178,10 +165,6 @@ public class Customer implements Serializable {
     public void setHabits(String[] habits) {
         this.habits = habits;
     }
-    /**
-     * Holds value of property birth.
-     */
-    private String birth;
 
     /**
      * Getter for property birth.
@@ -215,10 +198,6 @@ public class Customer implements Serializable {
     public void setBirth(String birth) {
         this.birth = birth;
     }
-    /**
-     * Holds value of property account.
-     */
-    private String account;
 
     /**
      * Getter for property birth.
