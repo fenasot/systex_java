@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+body {
+	height: 500 px;
+	text-align: center;
+	margin: auto;
+	border: 1px thick;
+}
+h1, h2,.h2_color {
+	color: #369;
+}
+
+#tableone {
+	margin: auto;
+}
+
+.image1 {
+	height: 500px;
+}

@@ -7,12 +7,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.systex.testJDBC.lab3.Product;
 import com.systex.testJDBC.lab3.ProductDao;
+import com.systex.testJDBC.lab3.TxProductService;
 
 @SpringBootApplication
 public class TestJdbcApplication implements CommandLineRunner{
 
 	@Autowired
 	private ProductDao productDao;
+	
+	@Autowired
+	private TxProductService txProductService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(TestJdbcApplication.class, args);
@@ -35,6 +39,7 @@ public class TestJdbcApplication implements CommandLineRunner{
 		System.out.println(productDao.getProduct(1));
 		System.out.println(productDao.getProduct(2));
 //		System.out.println(productDao.getProduct(3));
+		txProductService.testTx();
 	}
 
 }
