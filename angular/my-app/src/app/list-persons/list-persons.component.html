@@ -1,0 +1,22 @@
+<p>list-persons works!</p>
+<table border="1" style="margin: auto;">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>City</th>
+      <th>Street</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of persons">
+      <td>{{ person.id }}</td>
+      <td>{{ person.firstname }}</td>
+      <td>{{ person.lastname }}</td>
+      <td>{{ person.city }}</td>
+      <td>{{ person.street }}</td>
+    </tr>
+  </tbody>
+
+</table>

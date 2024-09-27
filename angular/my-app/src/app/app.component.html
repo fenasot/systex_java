@@ -1,0 +1,33 @@
+
+<div class="main">
+  <h1>hello, {{ title }}</h1>
+  <table border="1" style="margin: auto; width: 80%;">
+      <tbody>
+        <tr>
+          <td colspan="2" style="height: 200px; vertical-align: top;">
+            廣告輪播
+            <app-advertise></app-advertise>
+          </td>
+        </tr>
+        <tr>
+          <td style="height: 200px; width: 50%; vertical-align: top;">
+            <app-news></app-news>
+          </td>
+          <td style="height: 200px; width: 50%; vertical-align: top;">
+           奇聞軼事
+           <app-interesting></app-interesting>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="height: 200px; vertical-align: top;">
+            會員管理<br/>
+            <a routerLink="list-persons">會員列表</a>
+            <br/>
+            <a routerLink="add-person">新增會員</a>
+            <router-outlet/>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+
