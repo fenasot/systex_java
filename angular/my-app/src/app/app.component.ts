@@ -4,11 +4,12 @@ import { AdvertiseComponent } from "./advertise/advertise.component";
 import { InterestingComponent } from "./interesting/interesting.component";
 import { AddPersonComponent } from "./add-person/add-person.component";
 import { NewsComponent } from "./news/news.component";
+import { UpdatePersonComponent } from './update-person/update-person.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, AdvertiseComponent, InterestingComponent, AddPersonComponent, NewsComponent],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, AdvertiseComponent, InterestingComponent, AddPersonComponent, NewsComponent, UpdatePersonComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

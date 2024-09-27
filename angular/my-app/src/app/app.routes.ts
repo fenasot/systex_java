@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import { ListPersonsComponent } from './list-persons/list-persons.component';
 import { AddPersonComponent } from './add-person/add-person.component';
+import { UpdatePersonComponent } from './update-person/update-person.component';
+import { DeletePersonComponent } from './delete-person/delete-person.component';
 
 export const routes: Routes = [
   {
@@ -10,5 +12,13 @@ export const routes: Routes = [
   {
     path: 'add-person',
     component: AddPersonComponent
+  },
+  {
+    path: 'update-person',
+    component: UpdatePersonComponent
+  },
+  {
+    path: 'delete-person',
+    component: DeletePersonComponent
   }
 ];

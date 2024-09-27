@@ -16,6 +16,11 @@
       <td>{{ person.lastname }}</td>
       <td>{{ person.city }}</td>
       <td>{{ person.street }}</td>
+      <td>
+        <a routerLink="../list-persons">aaa</a>
+        <a routerLink="../update-person/{{ person.id }}">修改</a>
+        <a routerLink="../delete-person/{{ person.id }}">刪除</a>
+      </td>
     </tr>
   </tbody>
 
