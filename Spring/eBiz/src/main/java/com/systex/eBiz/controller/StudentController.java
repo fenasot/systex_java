@@ -45,7 +45,7 @@ public class StudentController {
 	}
 	
 	@GetMapping("/updateStudent/{id}")
-	public ModelAndView upadateStudentForm(@PathVariable("id") int id) {
+	public ModelAndView upadateStudentForm(@PathVariable int id) {
 		Optional<Student> result = this.studentRepository.findById(id);
 		Student student = null;
 		if(!result.isEmpty()) {
@@ -67,7 +67,7 @@ public class StudentController {
 	}
 	
 	@GetMapping("/deleteStudent/{id}")
-	public String deleteStudentFrom(@PathVariable("id") int id) {
+	public String deleteStudentFrom(@PathVariable int id) {
 		Optional<Student> student = this.studentRepository.findById(id);
 		if(!student.isEmpty()) {
 			this.studentRepository.deleteById(id);

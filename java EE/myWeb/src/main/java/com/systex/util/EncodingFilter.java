@@ -6,11 +6,11 @@ import jakarta.servlet.FilterConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
-import jakarta.servlet.annotation.WebFilter;
+//import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpFilter;
 import java.io.IOException;
 
-import org.apache.catalina.filters.ExpiresFilter.XServletOutputStream;
+//import org.apache.catalina.filters.ExpiresFilter.XServletOutputStream;
 
 /**
  * Servlet Filter implementation class EncodingFilter
