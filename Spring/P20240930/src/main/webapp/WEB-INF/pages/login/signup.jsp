@@ -8,27 +8,33 @@
 <jsp:include page="/templates/header.jsp"></jsp:include>
 </head>
 <body>
-	<form method="post" action="signup">
-		<table class="tableset">
-			<thead>
-				<tr><th>${ requestScope.errorMsg }</th></tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>帳號:</td>
-					<td><input class="form-control" name="acc" value="${ requestScope.acc }"/></td>
-				</tr>
-				<tr>
-					<td>密碼:</td>
-					<td><input class="form-control" name="pwd" value="" type="password"/></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><input class="btn btn-primary" type="submit" value="建立" /></td>
-				</tr>
-			</tbody>
-		</table>
-	</form>
+	<div class="container d-flex justify-content-center align-items-cente" style="height: 100vh;">
+		<div class="d-flex align-items-center">
+			<form method="post" action="signup">
+				<table class="tableset">
+					<thead>
+						<tr><th>建立帳號</th></tr>
+						<tr><th><div class="text-danger">${ requestScope.errorMsg }</div></th></tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>帳號:</td>
+							<td><input class="form-control" name="acc" value="${ requestScope.acc }" placeholder="請輸入6~20個字元"/></td>
+						</tr>
+						<tr>
+							<td>密碼:</td>
+							<td><input class="form-control" name="pwd" value="" type="password" placeholder="請輸入6~20個字元，並包含大小寫"/></td>
+						</tr>
+						<tr>
+							<td><a href="${ pageContext.request.contextPath }/login">返回</a></td>
+							<td><input class="btn btn-primary" type="submit" value="建立" /></td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</div>
+	
 	<jsp:include page="/templates/footer.jsp"></jsp:include>
 </body>
 </html>

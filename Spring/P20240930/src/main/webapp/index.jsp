@@ -9,14 +9,24 @@
 </head>
 <body>
 	<% String user = (String)session.getAttribute("user"); %>
-	<h1>Welcome To My Spring Boot Playground</h1>
-	<% if(user != null && !user.equals("")) { %>
-	<h2>歡迎您， ${ sessionScope.user }</h2>
-	<p><a href="<%= request.getContextPath() %>/login/logout">登出</a></p>
-	<% } else { %>
-	<h2>您還尚未登入，請先登入後才可進行遊戲</h2>
-	<p><a href="<%= request.getContextPath() %>/login">登入</a></p>
-	<% } %>
+
+	<div class="container d-flex justify-content-center align-items-cente" style="height: 100vh;">
+		<div class="d-flex flex-row">	
+			<div class="p-2"><h1>Welcome To My Spring Boot Playground</h1></div>	
+		  <div class="p-2">
+		  <div class="d-flex align-items-center">		
+				<% if(user != null && !user.equals("")) { %>
+				<h2>歡迎您， ${ sessionScope.user }</h2>
+				<h3><a href="${ pageContext.request.contextPath }/login/logout">登出</a></h3>
+				<% } else { %>
+				<h2>您還尚未登入，請先登入後才可進行遊戲</h2>
+				<h3><a href="<%= request.getContextPath() %>/login">登入</a></h3>
+				<% } %>
+			</div>		  
+		  </div>
+		</div>
+
+	</div>
 	
 
 	
