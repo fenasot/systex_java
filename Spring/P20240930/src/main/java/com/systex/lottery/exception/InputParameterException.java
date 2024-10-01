@@ -23,8 +23,15 @@ public class InputParameterException extends Exception{
 	 * @param e The system error message.
 	 */
 	public InputParameterException(String customizeErrorMsg, Exception e) {
-		super(isDev ? (customizeErrorMsg + e) : customizeErrorMsg);
+		super(isDev ? (customizeErrorMsg + "system error msg : " + e) : customizeErrorMsg);
 	}
 	
-	
+	/**
+	 * Return just the message part
+	 */
+    @Override
+    public String toString() {
+        
+        return getMessage();
+    }	
 }

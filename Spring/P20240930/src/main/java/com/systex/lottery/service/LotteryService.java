@@ -12,7 +12,7 @@ import com.systex.lottery.exception.InputParameterException;
 
 @Service
 public class LotteryService {
-	
+
 	/**
 	 * 存放用於限制 {@link #writeBingo()} 輸出的數字 
 	*/
@@ -21,12 +21,17 @@ public class LotteryService {
 	/**
 	 * 在新增 {@code excludeNum} 時，因超出範圍而被忽略的數字將存放在此
 	 */
-	private ArrayList<Integer> outRangeNums = new ArrayList<>();
+	private Set<Integer> outRangeNums = new HashSet<>();
+	
+	/**
+	 * 最後一次使用的生成組數
+	 */
+	private int times;
 
 	/**
-	 * Constructs 可輸入 int[]，也可輸入 String，也可以不輸入任何東西
+	 * Constructs 不輸入任何東西時，只會生成物件
 	 * @param excludeNum 
-	 * @throws InputParameterException 自訂義錯誤拋出
+	 * @throws InputParameterException 自定義錯誤拋出
 	 */
 	public LotteryService() {
 		super();
@@ -35,7 +40,7 @@ public class LotteryService {
 	/**
 	 * Constructs 可輸入 int[]，也可輸入 String，也可以不輸入任何東西
 	 * @param excludeNum 
-	 * @throws InputParameterException 自訂義錯誤拋出
+	 * @throws InputParameterException 自定義錯誤拋出
 	 */
 	public LotteryService(int[] excludeNum) throws InputParameterException {
 		setExcludeNum(excludeNum);
@@ -44,10 +49,75 @@ public class LotteryService {
 	/**
 	 * Constructs 可輸入 int[]，也可輸入 String，也可以不輸入任何東西
 	 * @param excludeNum 
-	 * @throws InputParameterException 自訂義錯誤拋出
+	 * @throws InputParameterException 自定義錯誤拋出
 	 */	
 	public LotteryService(String excludeNum) throws InputParameterException {
 		setExcludeNum(excludeNum);
+	}
+	
+	/**
+	 * 取得已被排除的數字清單
+	 * @return strExcludeNum
+	 */
+ 	public Set<Integer> getExcludeNum() {
+		return excludeNum;
+	}
+	
+	/**
+	 * 取得已被排除的數字清單(回傳String)
+	 * @return strExcludeNum
+	 */
+	public String getStrExcludeNum() {
+		String strExcludeNum = this.excludeNum
+		.stream()
+		.map(String::valueOf)
+		.collect(Collectors.joining(", "));
+		
+		return strExcludeNum; 
+	}
+
+	/**
+	 * 重置現有的排除清單
+	 */
+	public void resetExcludeNum() {
+		this.excludeNum.clear();
+	}
+	
+	/**
+	 * get times
+	 * @return
+	 */
+	public int getTimes() {
+		return times;
+	}
+
+	/** 
+	 * set times
+	 * @param times
+	 * @throws InputParameterException
+	 */
+	public void setTimes(int times) throws InputParameterException {
+		timesCheck(times);
+	}
+	
+
+	public Set<Integer> getOutRangeNums() {
+		return outRangeNums;
+	}
+
+	/**
+	 * 加入在排除數字時，超出範圍而被忽略的數字
+	 * @param outRangeNums
+	 */
+	private void setOutRangeNums(int outRangeNums) {
+		this.outRangeNums.add(outRangeNums);
+	}
+	
+	/**
+	 * 重置 outRangeNums
+	 */
+	public void resetOutRangeNums() {
+		outRangeNums.clear();
 	}
 	
 	/**
@@ -55,7 +125,7 @@ public class LotteryService {
 	 * 組數的號碼，每組包含7個數字，並且不驗證是否有完全相同的組數
 	 * @param times 生成組數(範圍為1~1000組)
 	 * @return allNum 
-	 * @throws InputParameterException 自訂義錯誤拋出
+	 * @throws InputParameterException 自定義錯誤拋出
 	 */
 	public ArrayList<int[]> writeBingo(int times) throws InputParameterException {
 		return generateBingo(times);
@@ -66,7 +136,7 @@ public class LotteryService {
 	 * 組數的號碼，每組包含7個數字，並且不驗證是否有完全相同的組數
 	 * @param times 生成組數(範圍為1~1000組)
 	 * @return allNum 
-	 * @throws InputParameterException 自訂義錯誤拋出
+	 * @throws InputParameterException 自定義錯誤拋出
 	 */
 	public ArrayList<int[]> writeBingo(String times) throws InputParameterException {
 		
@@ -88,12 +158,10 @@ public class LotteryService {
 	 * 組數的號碼，每組包含7個數字，並且不驗證是否有完全相同的組數
 	 * @param times 生成組數(範圍為1~1000組)
 	 * @return allNum 
-	 * @throws InputParameterException 自訂義錯誤拋出
+	 * @throws InputParameterException 自定義錯誤拋出
 	 */
 	private ArrayList<int[]> generateBingo(int times) throws InputParameterException {
-		if((times <= 1) || (times >= 1000)) {
-			throw new InputParameterException("輸入的生成組數超出範圍");
-		}
+		timesCheck(times);
 		
 		ArrayList<int[]> allNum = new ArrayList<int[]>();
 		
@@ -105,31 +173,15 @@ public class LotteryService {
 	}
 	
 	/**
-	 * 取得已被排除的數字清單
-	 * @return strExcludeNum
+	 * 確認生成次數是否超出範圍，在範圍內就儲存
+	 * @param times
+	 * @throws InputParameterException
 	 */
-	public Set<Integer> getExcludeNum() {
-		return excludeNum;
-	}
-	
-	/**
-	 * 取得已被排除的數字清單(回傳String)
-	 * @return strExcludeNum
-	 */
-	public String getStrExcludeNum() {
-		String strExcludeNum = this.excludeNum
-		.stream()
-		.map(String::valueOf)
-		.collect(Collectors.joining(", "));
-		
-		return strExcludeNum; 
-	}
-
-	/**
-	 * 重置排除的清單
-	 */
-	public void resetExcludeNum() {
-		this.excludeNum.clear();
+	private void timesCheck(int times) throws InputParameterException {
+		if((times <= 1) || (times >= 1000)) {
+			throw new InputParameterException("輸入的生成組數超出範圍");
+		}
+		this.times = times;
 	}
 	
 	/**
@@ -151,7 +203,7 @@ public class LotteryService {
 	/**
 	 * 新增用於限制 {@link #writeBingo()} 輸出的數字，先驗證參數後再呼叫實際用於新增 {@link #addExcludeNum(int)} 的方法
 	 * @param string 用,分隔數字的字串
-	 * @throws InputParameterException
+	 * @throws InputParameterException 自定義錯誤拋出
 	 */
 	public void setExcludeNum(String string) throws InputParameterException {
 		if(string == null || string.equals("")) {
@@ -165,9 +217,9 @@ public class LotteryService {
 	}
 
 	/**
-	 * 新增用於限制 {@link #writeBingo()} 輸出的數字(輸入 int)，
+	 * 新增用於限制 {@link #writeBingo()} 輸出的數字(輸入 int)。
 	 * @param arg 數字範圍 1~49 
-	 * @throws InputParameterException 自訂義錯誤拋出
+	 * @throws InputParameterException 自定義錯誤拋出
 	 */
 	private void addExcludeNum(int arg) throws InputParameterException {
 		boolean isInRange = (arg >= 1) && (arg <= 49);
@@ -180,7 +232,7 @@ public class LotteryService {
 		if(isInRange) {	
 			excludeNum.add(arg);
 		} else {
-			outRangeNums.add(arg);
+			setOutRangeNums(arg);
 		}
 	}
 		
@@ -188,7 +240,7 @@ public class LotteryService {
 	 * 將輸入的字串以","為分割點轉為int[]
 	 * @param string
 	 * @return int[] or null
-	 * @throws InputParameterException 自訂義錯誤拋出
+	 * @throws InputParameterException 自定義錯誤拋出
 	 */
 	private int[] strArgToInts(String string) throws InputParameterException {
 		int[] args;
@@ -196,12 +248,12 @@ public class LotteryService {
 		try {
 			args = Arrays
 					.stream(string.split(","))
+					.map(String::trim)
 					.mapToInt(Integer::parseInt)
 					.toArray();
 		} catch (NumberFormatException | NullPointerException e) {
-			throw new InputParameterException("轉換輸入參數失敗");
+			throw new InputParameterException("轉換輸入參數失敗", e);
 		}		
-
 		return args;
 	}
 	

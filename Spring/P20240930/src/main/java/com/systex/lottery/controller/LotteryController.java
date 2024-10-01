@@ -16,14 +16,14 @@ import com.systex.lottery.service.LotteryService;
 @RequestMapping("/lottery")
 public class LotteryController {
 
-	@GetMapping("/lottery")
-//	@GetMapping
-	public String getLottery(Model model) {
+	@GetMapping
+	public String getLottery() {
 		return "lottery/lottery";
 	}
-	@PostMapping("/lottery")
-//	@PostMapping
+	
+	@PostMapping
 	public String postlottery(@RequestParam String numbers, @RequestParam(defaultValue = "2") String times, Model model) {
+		model.addAttribute("errorMsg", "");
 		model.addAttribute("numbers", numbers);
 		model.addAttribute("times", times);
 		
@@ -31,6 +31,7 @@ public class LotteryController {
 			LotteryService a = new LotteryService(numbers);
 			ArrayList<int[]> result = a.writeBingo(times);
 			model.addAttribute("result", result);
+			model.addAttribute("excludeNums", a.getStrExcludeNum());
 		} catch (InputParameterException e) {
 			model.addAttribute("errorMsg", e);
 			return "lottery/lottery";
